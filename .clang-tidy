@@ -1,0 +1,9 @@
+Checks: >
+  -*,
+  bugprone-*,
+  performance-*,
+  modernize-use-nullptr,
+  readability-misleading-indentation
+
+WarningsAsErrors: ''          # не валим по предупреждениям
+HeaderFilterRegex: '^(libcompressor|compressor)/.*'
