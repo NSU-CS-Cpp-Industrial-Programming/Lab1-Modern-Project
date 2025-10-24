@@ -103,3 +103,5 @@ core.*
 
 docs/html/
 docs/latex/
+
+CMakeUserPresets.json
