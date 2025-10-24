@@ -1,15 +1,16 @@
 #include "libcompressor/libcompressor.hpp"
-
 #include <bzlib.h>
 #include <zlib.h>
-
 #include <cstdlib>
 #include <cstring>
 
 namespace {
 libcompressor_Buffer err() { return {nullptr, 0}; }
-}  // namespace
+}
 
+/**
+ * Сжатие входного буфера, используя выбранный алгоритм.
+ */
 libcompressor_Buffer libcompressor_compress(libcompressor_CompressionAlgorithm algo, libcompressor_Buffer input) {
   if (!input.data || input.size <= 0) return err();
 

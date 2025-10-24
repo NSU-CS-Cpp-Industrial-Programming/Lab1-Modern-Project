@@ -3,28 +3,24 @@ project(modern_cpp_task LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_EXPORT_COMPILE_COMMANDS YES) # нужен для clang-tidy/format (из задания) :contentReference[oaicite:2]{index=2}
+set(CMAKE_EXPORT_COMPILE_COMMANDS YES)
 
 include(CTest)
 
-# Жёсткие варнинги как ошибки
 if (MSVC)
   add_compile_options(/W4 /WX)
 else()
   add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 endif()
 
-# Подключаем Conan сгенерированные файлы
-include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake OPTIONAL) # безопасно
+include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake OPTIONAL) 
 find_package(ZLIB REQUIRED)
 find_package(BZip2 REQUIRED)
 find_package(spdlog REQUIRED)
-# GTest будет искаться только в tests CMakeLists
 
 add_subdirectory(libcompressor)
 add_subdirectory(compressor)
 
-# -------- Doxygen -------- (согласно заданию) :contentReference[oaicite:3]{index=3}
 find_package(Doxygen REQUIRED)
 set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/docs)
 set(DOXYGEN_EXTRACT_ALL YES)
@@ -34,7 +30,6 @@ doxygen_add_docs(
   COMMENT "Generate API docs"
 )
 
-# -------- clang-format / clang-tidy удобные цели --------
 file(GLOB_RECURSE ALL_CXX
   libcompressor/include/*.hpp
   libcompressor/src/*.cpp

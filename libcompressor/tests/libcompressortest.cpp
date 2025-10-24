@@ -1,8 +1,6 @@
 #include <gtest/gtest.h>
-
 #include <cstdlib>
 #include <cstring>
-
 #include "libcompressor/libcompressor.hpp"
 
 static libcompressor_Buffer make_buf(const char* s) {

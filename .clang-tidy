@@ -5,5 +5,5 @@ Checks: >
   modernize-use-nullptr,
   readability-misleading-indentation
 
-WarningsAsErrors: ''          # не валим по предупреждениям
+WarningsAsErrors: ''      
 HeaderFilterRegex: '^(libcompressor|compressor)/.*'

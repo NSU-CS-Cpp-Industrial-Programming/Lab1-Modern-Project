@@ -7,7 +7,6 @@ target_include_directories(libcompressor PUBLIC
 )
 target_link_libraries(libcompressor PUBLIC ZLIB::ZLIB BZip2::BZip2)
 
-# ---- тесты ----
 if (BUILD_TESTING)
   find_package(GTest REQUIRED)
   add_executable(libcompressor_tests tests/libcompressortest.cpp)

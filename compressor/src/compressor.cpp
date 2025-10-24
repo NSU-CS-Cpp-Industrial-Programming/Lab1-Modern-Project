@@ -1,12 +1,14 @@
 #include <spdlog/spdlog.h>
-
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <string>
-
 #include "libcompressor/libcompressor.hpp"
 
+/**
+ * CLI-обёртка над libcompressor.
+ * Печатает сжатые данные в hex на STDOUT, ошибки логируются через spdlog в STDERR.
+ */
 int main(int argc, char** argv) {
   spdlog::set_level(spdlog::level::err);
 
