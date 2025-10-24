@@ -1,14 +1,14 @@
 # Lab1-Modern-Project
 
-# Команды для сборки
-## 0. Инструменты
+# Build Commands
+## 0. Tools (one-time)
 ```bash
 sudo apt update
 sudo apt install -y build-essential cmake git pkg-config doxygen graphviz ninja-build clang clang-tidy clang-format
 sudo apt install -y pipx && pipx ensurepath && pipx install conan
 ```
 
-## 1. Debug: зависимости + конфигурация + сборка
+## 1. Debug: dependencies + configure + build
 ```bash
 conan profile detect --force
 conan install . --build=missing -s build_type=Debug
@@ -19,25 +19,25 @@ cmake -B build/Debug \
 cmake --build build/Debug -j
 ```
 
-## 2. Тесты + отчёт
+## 2. Tests + report
 ```bash
 ctest --test-dir build/Debug --output-on-failure
 ls build/Debug/test_results.xml
 ```
 
-## 3. Документация (Doxygen)
+## 3. Documentation (Doxygen)
 ```bash
 cmake --build build/Debug --target docs
 ls build/Debug/docs/html
 ```
 
-## 4. Форматирование и статический анализ
+## 4. Formatting and static analysis
 ```bash
 cmake --build build/Debug --target format
 cmake --build build/Debug --target tidy
 ```
 
-## 5. Установка артефактов
+## 5. Install artifacts
 ```bash
 sudo cmake --install build/Debug
 which compressor
