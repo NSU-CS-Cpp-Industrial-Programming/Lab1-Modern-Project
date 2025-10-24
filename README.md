@@ -1,12 +1,6 @@
 # Lab1-Modern-Project
 
 # Build Commands
-## 0. Tools (one-time)
-```bash
-sudo apt update
-sudo apt install -y build-essential cmake git pkg-config doxygen graphviz ninja-build clang clang-tidy clang-format
-sudo apt install -y pipx && pipx ensurepath && pipx install conan
-```
 
 ## 1. Debug: dependencies + configure + build
 ```bash
